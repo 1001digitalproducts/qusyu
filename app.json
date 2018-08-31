@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "sdkVersion": "28.0.0",
+    "android": {
+      "package": "com.awancoder.dp.qusyu",
+      "versionCode": 1,
+      "permissions": [],
+      "icon": "./icon.png"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#40E0D0"
+    },
+    "splash": {
+      "image": "assets/images/splash.png",
+      "backgroundColor": "#40E0D0",
+      "width": 100,
+      "height": 160,
+      "resizeMode": "contain"
+    }
+  }
+}
