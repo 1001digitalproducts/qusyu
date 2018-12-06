@@ -30,7 +30,7 @@ class About extends React.PureComponent {
               human.caption1,
               { color: colors.white, paddingVertical: 10, textAlign: 'center' },
             ]}>
-            Version 1
+            Version 2
           </Text>
         </View>
         <Text style={[human.body, { color: colors.white, position: 'absolute', bottom: hx(5) }]}>

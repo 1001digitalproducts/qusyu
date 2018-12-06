@@ -46,21 +46,21 @@ class Detail extends React.Component<Props> {
     invariant(pop, 'missing `pop` action creator for StackNavigator');
 
     return (
-      <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ backgroundColor: colors.white, padding: 18 }}>
         <StatusBar backgroundColor={colors.headerBackground} barStyle="dark-content" />
-        <ScrollView contentContainerStyle={{ backgroundColor: colors.white, padding: 18, flex: 1 }}>
+        <View style={{ marginBottom: 50, flex: 1 }}>
           <Text style={[human.headline, { color: colors.contentText, textAlign: 'center' }]}>
-            {doa.title}
+            {doa.judul_doa}
           </Text>
           <Text style={[humanDense.largeTitle, { color: colors.contentText, marginVertical: 10 }]}>
-            {doa.arabic}
+            {doa.arab}
           </Text>
           <Text style={[human.body, { color: colors.contentText }]}>
             “{doa.arti}
             .”
           </Text>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }

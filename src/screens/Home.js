@@ -24,7 +24,7 @@ type Props = {
   dispatch: () => {},
 };
 
-class Home extends React.Component<NavScreenProps> {
+class Home extends React.Component<Props> {
   state = {
     menu: false,
     search: false,
@@ -51,10 +51,10 @@ class Home extends React.Component<NavScreenProps> {
           end={{ x: 0.2, y: 0 }}
           colors={[
             randomColor({
-              luminosity: 'dark',
+              luminosity: 'light',
             }),
             randomColor({
-              luminosity: 'dark',
+              luminosity: 'light',
             }),
           ]}
           style={{
@@ -67,17 +67,17 @@ class Home extends React.Component<NavScreenProps> {
             flexDirection: 'row',
           }}>
           <View style={{ justifyContent: 'center', maxWidth: wx(80) }}>
-            <Text style={[human.title3, { color: colors.white }]}>
-              {item.title}
+            <Text style={[human.title3, { color: colors.contentText }]}>
+              {item.judul_doa}
               {`\n`}
-              <Text style={[human.footnote, { color: colors.white }]}>({item.ayat})</Text>
+              <Text style={[human.footnote, { color: colors.contentText }]}>{item.arab}</Text>
             </Text>
           </View>
           <Icon
             iconStyle={{ fontSize: 30 }}
             name="ios-arrow-forward"
             type="ionicon"
-            color={colors.white}
+            color={colors.contentText}
           />
         </LinearGradient>
       </TouchableOpacity>
@@ -170,7 +170,7 @@ class Home extends React.Component<NavScreenProps> {
             keyExtractor={this.keyExtractor}
             data={doa}
             renderItem={this.renderItem}
-            contentContainerStyle={{ marginHorizontal: 20, marginTop: 18 }}
+            contentContainerStyle={{ marginHorizontal: 20, marginTop: 18, paddingBottom: 18 }}
           />
         </View>
       </MenuProvider>
