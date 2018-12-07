@@ -1,21 +1,40 @@
 {
   "expo": {
-    "sdkVersion": "28.0.0",
+    "name": "Qusyu",
+    "slug": "qusyu",
+    "privacy": "public",
+    "sdkVersion": "31.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "android": {
       "package": "com.awancoder.dp.qusyu",
       "versionCode": 2,
       "permissions": [],
-      "icon": "./icon.png"
+      "icon": "./assets/icon.png"
     },
     "androidStatusBar": {
       "backgroundColor": "#40E0D0"
     },
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "assets/images/splash.png",
       "backgroundColor": "#40E0D0",
       "width": 100,
       "height": 160,
       "resizeMode": "contain"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
     }
   }
 }

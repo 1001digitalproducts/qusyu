@@ -4,10 +4,11 @@
 import type { NavigationScreenProp } from 'react-navigation';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { StatusBar, View, ScrollView, Text } from 'react-native';
+import { StatusBar, View, ScrollView, Text, Image } from 'react-native';
 import { Constants } from 'expo';
 import invariant from 'invariant';
 import { human, humanDense } from 'react-native-typography';
+import { DIVIDER } from '@constants/assets';
 import colors from '@constants/colors';
 
 type Props = {
@@ -29,8 +30,8 @@ class Detail extends React.Component<Props> {
       backgroundColor: colors.headerBackground,
       marginTop: -Constants.statusBarHeight,
     },
-    headerTintColor: colors.headerColor,
-    headerTitleStyle: [human.title2, { color: colors.headerColor }],
+    headerTintColor: colors.primary,
+    headerTitleStyle: [human.title2, { color: colors.primary }],
   });
 
   componentDidMount() {
@@ -49,15 +50,35 @@ class Detail extends React.Component<Props> {
       <ScrollView contentContainerStyle={{ backgroundColor: colors.white, padding: 18 }}>
         <StatusBar backgroundColor={colors.headerBackground} barStyle="dark-content" />
         <View style={{ marginBottom: 50, flex: 1 }}>
-          <Text style={[human.headline, { color: colors.contentText, textAlign: 'center' }]}>
+          <Text style={[human.headline, { color: colors.primary, textAlign: 'center' }]}>
             {doa.judul_doa}
           </Text>
-          <Text style={[humanDense.largeTitle, { color: colors.contentText, marginVertical: 10 }]}>
+          <Image
+            style={{
+              marginTop: 20,
+              height: 20,
+              width: '100%',
+              resizeMode: 'contain',
+              justifyContent: 'center',
+            }}
+            source={DIVIDER}
+          />
+          <Text style={[humanDense.largeTitle, { color: colors.primary, marginVertical: 10 }]}>
             {doa.arab}
           </Text>
-          <Text style={[human.body, { color: colors.contentText }]}>
+          <Image
+            style={{
+              marginBottom: 10,
+              height: 20,
+              width: '100%',
+              resizeMode: 'contain',
+              justifyContent: 'center',
+            }}
+            source={DIVIDER}
+          />
+          <Text style={[human.body, { color: colors.primary }]}>
             “{doa.arti}
-            .”
+            .” ({doa.surat + ' ' + doa.nomor_surat}:{doa.ayat_awal}-{doa.ayat_akhir})
           </Text>
         </View>
       </ScrollView>

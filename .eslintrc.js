@@ -1,6 +1,8 @@
 module.exports = {
   extends: ["universe", "eslint:recommended", "plugin:react/recommended"],
-  plugins: ["styled-components-config"],
+  rules: {
+    "react/display-name": false
+  },
   env: {
     browser: true,
     node: true

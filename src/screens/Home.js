@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo';
 import { FlatList, Text, View, StatusBar, TouchableOpacity, Linking } from 'react-native';
 import { Header, Icon, SearchBar } from 'react-native-elements';
 import randomColor from 'randomcolor';
-import { human } from 'react-native-typography';
+import { human, humanDense } from 'react-native-typography';
 import { responsiveWidth as wx } from 'react-native-responsive-dimensions';
 import { createFilter } from 'react-native-search-filter';
 import Menu, { MenuProvider, MenuOptions, MenuOption, MenuTrigger } from 'react-native-popup-menu';
@@ -35,7 +35,7 @@ class Home extends React.Component<Props> {
     this.setState({ searchTerm: term });
   }
   renderLogo = () => (
-    <Text style={[human.title2, { color: colors.headerColor, paddingVertical: 5 }]}>Qusyu</Text>
+    <Text style={[human.title2, { color: colors.primary, paddingVertical: 5 }]}>Qusyu</Text>
   );
   keyExtractor = (item, index) => index.toString();
   renderItem = ({ item }) => {
@@ -67,17 +67,14 @@ class Home extends React.Component<Props> {
             flexDirection: 'row',
           }}>
           <View style={{ justifyContent: 'center', maxWidth: wx(80) }}>
-            <Text style={[human.title3, { color: colors.contentText }]}>
-              {item.judul_doa}
-              {`\n`}
-              <Text style={[human.footnote, { color: colors.contentText }]}>{item.arab}</Text>
-            </Text>
+            <Text style={[human.title3, { color: colors.primary }]}>{item.judul_doa}</Text>
+            <Text style={[humanDense.footnote, { color: colors.primary }]}>{item.arab}</Text>
           </View>
           <Icon
             iconStyle={{ fontSize: 30 }}
             name="ios-arrow-forward"
             type="ionicon"
-            color={colors.contentText}
+            color={colors.primary}
           />
         </LinearGradient>
       </TouchableOpacity>
@@ -106,7 +103,7 @@ class Home extends React.Component<Props> {
               <Icon
                 name="md-search"
                 type="ionicon"
-                color={colors.headerColor}
+                color={colors.primary}
                 iconStyle={{ paddingHorizontal: 0 }}
               />
             </TouchableItem>
@@ -133,7 +130,7 @@ class Home extends React.Component<Props> {
                   <Icon
                     name="md-more"
                     type="ionicon"
-                    color={colors.headerColor}
+                    color={colors.primary}
                     iconStyle={{ paddingHorizontal: 15, paddingVertical: 5 }}
                   />
                 </TouchableItem>
@@ -144,14 +141,14 @@ class Home extends React.Component<Props> {
                     this.setState({ menu: false });
                     navigation.navigate('About');
                   }}>
-                  <Text style={[human.body, { color: colors.contentText }]}>About</Text>
+                  <Text style={[human.body, { color: colors.primary }]}>About</Text>
                 </MenuOption>
                 <MenuOption
                   onSelect={() => {
                     this.setState({ menu: false });
                     Linking.openURL('http://1001digitalproducts.awancoder.com/report/');
                   }}>
-                  <Text style={[human.body, { color: colors.contentText }]}>Report</Text>
+                  <Text style={[human.body, { color: colors.primary }]}>Report</Text>
                 </MenuOption>
               </MenuOptions>
             </Menu>
