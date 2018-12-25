@@ -5,10 +5,11 @@ import type { NavigationScreenProp } from 'react-navigation';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { StatusBar, View, ScrollView, Text, Image } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { Constants } from 'expo';
 import invariant from 'invariant';
 import { human, humanDense } from 'react-native-typography';
-import { DIVIDER } from '@constants/assets';
+import { QURAN } from '@constants/assets';
 import colors from '@constants/colors';
 
 type Props = {
@@ -39,7 +40,7 @@ class Detail extends React.Component<Props> {
       navigation: { setParams },
       doa,
     } = this.props;
-    setParams({ title: doa.title });
+    setParams({ title: doa.judul_doa });
   }
   render() {
     const { navigation, doa } = this.props;
@@ -50,36 +51,50 @@ class Detail extends React.Component<Props> {
       <ScrollView contentContainerStyle={{ backgroundColor: colors.white, padding: 18 }}>
         <StatusBar backgroundColor={colors.headerBackground} barStyle="dark-content" />
         <View style={{ marginBottom: 50, flex: 1 }}>
-          <Text style={[human.title1, { color: colors.primary, textAlign: 'center' }]}>
-            {doa.judul_doa}
-          </Text>
-          <Image
-            style={{
-              marginTop: 20,
-              height: 20,
-              width: '100%',
-              resizeMode: 'contain',
-              justifyContent: 'center',
-            }}
-            source={DIVIDER}
-          />
-          <Text style={[humanDense.largeTitle, { color: colors.primary, marginVertical: 10 }]}>
+          <Text
+            style={[
+              humanDense.largeTitle,
+              { color: colors.primary, marginVertical: 10, textAlign: 'center' },
+            ]}>
             {doa.arab}
           </Text>
-          <Image
+          <View
             style={{
-              marginBottom: 10,
-              height: 20,
-              width: '100%',
-              resizeMode: 'contain',
-              justifyContent: 'center',
-            }}
-            source={DIVIDER}
-          />
-          <Text style={[human.body, { color: colors.primary }]}>
-            “{doa.arti}
-            .” ({doa.surat + ' ' + doa.nomor_surat}:{doa.ayat_awal}-{doa.ayat_akhir})
-          </Text>
+              backgroundColor: colors.borderWhite,
+              padding: 10,
+              borderRadius: 4,
+              marginVertical: 25,
+            }}>
+            <Icon
+              iconStyle={{
+                fontSize: 30,
+                transform: [{ rotate: '180deg' }],
+                alignSelf: 'flex-start',
+              }}
+              name="md-quote"
+              type="ionicon"
+              color={colors.labelText}
+            />
+            <Image
+              style={{
+                marginTop: -65,
+                marginBottom: 20,
+                height: 50,
+                width: '100%',
+                resizeMode: 'contain',
+                justifyContent: 'center',
+              }}
+              source={QURAN}
+            />
+            <Text style={[human.body, { color: colors.primary }]}>{doa.arti}</Text>
+            <Text
+              style={[
+                human.headline,
+                { color: colors.labelText, textAlign: 'right', marginTop: 10 },
+              ]}>
+              {doa.surat + ' ' + doa.nomor_surat}:{doa.ayat_awal}-{doa.ayat_akhir}
+            </Text>
+          </View>
         </View>
       </ScrollView>
     );
