@@ -26,7 +26,7 @@ class Detail extends React.Component<Props> {
       state: { params },
     },
   }) => ({
-    title: params ? params.title : '',
+    title: params ? params.title : 'Loading...',
     headerStyle: {
       backgroundColor: colors.headerBackground,
       marginTop: -Constants.statusBarHeight,
@@ -42,6 +42,7 @@ class Detail extends React.Component<Props> {
     } = this.props;
     setParams({ title: doa.judul_doa });
   }
+
   render() {
     const { navigation, doa } = this.props;
     const { pop } = navigation;
