@@ -50,7 +50,7 @@ class Detail extends React.Component<Props> {
       <ScrollView contentContainerStyle={{ backgroundColor: colors.white, padding: 18 }}>
         <StatusBar backgroundColor={colors.headerBackground} barStyle="dark-content" />
         <View style={{ marginBottom: 50, flex: 1 }}>
-          <Text style={[human.headline, { color: colors.primary, textAlign: 'center' }]}>
+          <Text style={[human.title1, { color: colors.primary, textAlign: 'center' }]}>
             {doa.judul_doa}
           </Text>
           <Image
