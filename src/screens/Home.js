@@ -17,7 +17,17 @@ import { selectDoa } from '@actions/doa';
 import TouchableItem from '@components/TouchableItem';
 import listDoa from '../doa.json';
 
-const KEYS_TO_FILTERS = ['title', 'arti'];
+listDoa.map(item => {
+  item.color1 = randomColor({
+    luminosity: 'light',
+  });
+  item.color2 = randomColor({
+    luminosity: 'light',
+  });
+  return item;
+});
+
+const KEYS_TO_FILTERS = ['judul_doa', 'arti'];
 
 type Props = {
   navigation: NavigationScreenProp<*>,
@@ -49,14 +59,7 @@ class Home extends React.Component<Props> {
         <LinearGradient
           start={{ x: 1, y: 0 }}
           end={{ x: 0.2, y: 0 }}
-          colors={[
-            randomColor({
-              luminosity: 'light',
-            }),
-            randomColor({
-              luminosity: 'light',
-            }),
-          ]}
+          colors={[item.color1, item.color2]}
           style={{
             backgroundColor: colors.white,
             borderRadius: 10,
