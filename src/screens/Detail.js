@@ -54,8 +54,8 @@ class Detail extends React.Component<Props> {
         <View style={{ marginBottom: 50, flex: 1 }}>
           <Text
             style={[
-              humanDense.largeTitle,
-              { color: colors.primary, marginVertical: 10, textAlign: 'center' },
+              humanDense.title2,
+              { color: colors.primary, marginVertical: 10, textAlign: 'right' },
             ]}>
             {doa.arab}
           </Text>
