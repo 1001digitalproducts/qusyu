@@ -32,7 +32,10 @@ class Detail extends React.Component<Props> {
       marginTop: -Constants.statusBarHeight,
     },
     headerTintColor: colors.primary,
-    headerTitleStyle: [human.title2, { color: colors.primary }],
+    headerTitleStyle: [
+      human.title2,
+      { flex: 1, color: colors.primary, textAlign: 'left', left: 0 },
+    ],
   });
 
   componentDidMount() {
